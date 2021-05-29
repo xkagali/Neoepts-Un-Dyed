@@ -2,6 +2,7 @@ import React from 'react';
 import {Row, Col, Container, Image, Card} from "react-bootstrap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import {NavLink} from "react-router-dom"
 
 function Home() {
     return (
@@ -10,7 +11,7 @@ function Home() {
                 <Col className={"col-12 d-flex flex-column justify-content-center align-items-center"}>
                     <h1 className={"brandtitle"}>Neopets <span className={"colorChange"}>Un-dyed</span></h1>
                     <div className={"subtitle my-3"}>a site for unofficial dyeworks contributed by creators</div>
-                    <div className="searchHomeCtn my-4">Does <input type="text" className="searchHome rounded"/> have undyes?</div>
+                    <div className="searchHomeCtn my-4">Does <input type="text" className="searchHome rounded"/> have any unofficial dyes?</div>
                 </Col>
             </Row>
             <Row>
@@ -165,7 +166,7 @@ function Home() {
             </Row>
             <Row>
                 <Col className={"col-12 pt-5 d-flex flex-row align-items-center"}>
-                    <h5 className="mr-2">Most Recent Unofficial Dyeworks</h5> <h6>view all</h6>
+                    <h5 className="mr-2">Most Recent Unofficial Dyeworks</h5> <NavLink to={"/unofficial-dyes"}><h6>view all</h6></NavLink>
                 </Col>
                 <Row className={"my-2 mx-0 recentCtn"}>
                     <Col><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>

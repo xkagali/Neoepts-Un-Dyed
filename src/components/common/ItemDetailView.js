@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, Container, Image, Row, Card, Button} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCaretLeft, faCaretRight, faHeart} from "@fortawesome/free-solid-svg-icons";
+import {faCaretLeft, faCaretRight, faHeart, faPlusSquare} from "@fortawesome/free-solid-svg-icons";
 
 function ItemDetailView() {
     return (
@@ -27,8 +27,66 @@ function ItemDetailView() {
                 </Col>
             </Row>
             <Row className="my-4">
-                <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>
-                <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>
+                <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: </h6></Col>
+                <Col className="col-6 text-right my-2"><Button><FontAwesomeIcon icon={faPlusSquare} /> Vote</Button></Col>
+                <Row className="recentCtn mx-0">
+                    <Col className="my-4"><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
+                        <div className={"overlayCtn"}>
+                            <div className="overlayText">
+                                <span className="title">Silver Key Garland</span>
+                                <span className="creator">Submitted by Kagali</span>
+                                <div className="iconsCtn mt-4">
+                                    <input id="toggleLikes" type="checkbox"/>
+                                    <label htmlFor="toggleLikes">
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col className="my-4"><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
+                        <div className={"overlayCtn"}>
+                            <div className="overlayText">
+                                <span className="title">Silver Key Garland</span>
+                                <span className="creator">Submitted by Kagali</span>
+                                <div className="iconsCtn mt-4">
+                                    <input id="toggleLikes" type="checkbox"/>
+                                    <label htmlFor="toggleLikes">
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col className="my-4"><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
+                        <div className={"overlayCtn"}>
+                            <div className="overlayText">
+                                <span className="title">Silver Key Garland</span>
+                                <span className="creator">Submitted by Kagali</span>
+                                <div className="iconsCtn mt-4">
+                                    <input id="toggleLikes" type="checkbox"/>
+                                    <label htmlFor="toggleLikes">
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col className="my-4"><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
+                        <div className={"overlayCtn"}>
+                            <div className="overlayText">
+                                <span className="title">Silver Key Garland</span>
+                                <span className="creator">Submitted by Kagali</span>
+                                <div className="iconsCtn mt-4">
+                                    <input id="toggleLikes" type="checkbox"/>
+                                    <label htmlFor="toggleLikes">
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
                 <Row className="recentCtn mx-0">
                     <Col className="my-4"><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
                         <div className={"overlayCtn"}>

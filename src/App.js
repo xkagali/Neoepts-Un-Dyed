@@ -24,6 +24,9 @@ function App() {
                 <Route path="/unofficial-dyes">
                     <ItemListView />
                 </Route>
+                <Route path="/user/:userID">
+
+                </Route>
             </Switch>
             <Footer />
         </BrowserRouter>
