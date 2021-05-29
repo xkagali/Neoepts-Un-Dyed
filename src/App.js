@@ -6,6 +6,8 @@ import {Container} from "react-bootstrap";
 import ItemDetailView from "./components/common/ItemDetailView";
 import ItemListView from "./components/ItemListView";
 import Footer from "./components/common/Footer";
+import UserDetails from "./components/UserDetails";
+import UserRegistration from "./components/UserRegistration";
 
 function App() {
     return (
@@ -25,7 +27,10 @@ function App() {
                     <ItemListView />
                 </Route>
                 <Route path="/user/:userID">
-
+                    <UserDetails />
+                </Route>
+                <Route path="/portal">
+                    <UserRegistration />
                 </Route>
             </Switch>
             <Footer />

@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+html{
+  min-height: 100%;
+  position: relative;
+}
+
 body, html{
   margin: 0;
   padding: 0;
@@ -14,7 +19,11 @@ body, html{
   color:#605C4E;
 }
 
-a:link{
+#root, body{
+  margin-bottom: 200px !important;
+}
+
+a:link, a:visited, a:active{
   color: #A49966;
 }
 
@@ -254,6 +263,9 @@ h6{
 .footer{
   font-size: 0.75rem;
   background-color: #e7e9d8;
+  position: absolute;
+  bottom: 0;
+  height: 150px;
 }
 
 .itemView h1{

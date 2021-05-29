@@ -3,6 +3,7 @@ import {Row, Col, Container, Image, Card} from "react-bootstrap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import {NavLink} from "react-router-dom"
+import AllItems from "./common/AllItems";
 
 function Home() {
     return (
@@ -23,223 +24,174 @@ function Home() {
                 </Col>
                 <Row className={"my-2 mx-0"}>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                <div className="overlayText">
-                                    votes<br/>100
-                                </div>
-                            </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
                                     <div className="overlayText">
                                         votes<br/>100
                                     </div>
                                 </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                     <Col>
-                        <Card>
-                            <div className="votedCtn">
-                                <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                            <Card.Body>
-                                <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
+                    </Col>
+                    <Col>
+                        <NavLink to={`/items/:itemID`}>
+                            <Card>
+                                <div className="votedCtn">
+                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
+                                    <div className={"overlayCtn"}>
+                                        <div className="overlayText">
+                                            votes<br/>100
+                                        </div>
+                                    </div></div>
+                                <Card.Body>
+                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </NavLink>
                     </Col>
                 </Row>
             </Row>
-            <Row>
-                <Col className={"col-12 pt-5 d-flex flex-row align-items-center"}>
-                    <h5 className="mr-2">Most Recent Unofficial Dyeworks</h5> <NavLink to={"/unofficial-dyes"}><h6>view all</h6></NavLink>
+            <Row className="mx-0">
+                <Col className={"col-12 pt-5"}>
+                    <Row className={"d-flex flex-row align-items-center"}>
+                        <h5 className="mr-2">Most Recent Unofficial Dyeworks</h5> <NavLink to={"/unofficial-dyes"}><h6>view all</h6></NavLink>
+                    </Row>
                 </Col>
-                <Row className={"my-2 mx-0 recentCtn"}>
-                    <Col><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col><Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
+                <AllItems />
             </Row>
         </Container>
     );
