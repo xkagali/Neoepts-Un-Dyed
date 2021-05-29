@@ -1,0 +1,271 @@
+/*https://coolors.co/363020-605c4e-a49966-c7c7a6-f8fae8*/
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
+body, html{
+  margin: 0;
+  padding: 0;
+  background-color: #F8FAE8 !important;
+  font-family: 'Quicksand', sans-serif;
+  color:#605C4E;
+}
+
+a:link{
+  color: #A49966;
+}
+
+a:hover{
+  text-decoration: none !important;
+  color: #363020 !important;
+}
+
+h5{
+  font-size: 1.125rem;
+  color: #A49966;
+}
+
+h6{
+  font-weight: 300 !important;
+  color: #C7C7A6;
+}
+
+.brandtitle{
+  font-size: 6rem;
+  color: #A49966;
+  text-shadow: 0 5px 0 #605C4E;
+}
+
+.subtitle{
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.searchHomeCtn{
+  width: 100%;
+  text-align: center;
+  background-color: #edefdd;
+  padding: 15px;
+}
+
+.searchHome{
+  border: 0;
+  border-bottom: 1px solid #363020;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 10px;
+  text-align: center;
+  outline: none;
+  transition: ease-in-out 300ms;
+  background-color:#edefdd;
+}
+
+.searchHome:focus{
+  background-color: #C7C7A6;
+}
+
+.searchHome:focus::placeholder{
+  color: #F8FAE8;
+}
+
+.navBrand{
+  font-weight: 500;
+  color: #A49966;
+}
+
+.searchbar{
+  border: 0;
+  background-color: #F8FAE8;
+  width: 100%;
+  max-width: 200px;
+  padding: 4px 13px;
+  outline: none;
+  transition: ease-in-out 300ms;
+}
+
+.searchbar::placeholder{
+  color: #d5d7c6
+}
+
+.searchbar:focus{
+  background-color: #C7C7A6;
+}
+
+.colorChange{
+  color: #A49966;
+  background-image: -webkit-linear-gradient(92deg, #ff0000, #ff9500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: changeHue 10s infinite linear;
+  text-shadow: none !important;
+}
+
+@keyframes changeHue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+
+.card{
+  font-size: 12px;
+}
+
+.votedCtn{
+  overflow: hidden;
+  position: relative;
+}
+
+.votedCtn img{
+  width: 100%;
+}
+
+.recentCtn .col{
+  padding: 0;
+  margin-right: 15px;
+  margin-left: 15px;
+  overflow: hidden;
+}
+
+.overlayCtn{
+  position: absolute;
+  background-color: rgba(0,0,0,0.7);
+  width:100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  color: #ffffff;
+  transform: translate(0px, 100%);
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+}
+
+.recentCtn .col:hover .overlayCtn, .votedCtn:hover .overlayCtn{
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+
+.overlayCtn .overlayText{
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  height: 100%;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlayCtn .overlayText .title {
+  font-size: 16px;
+}
+
+.overlayCtn .overlayText .creator{
+  font-size: 14px;
+  color: #ccc;
+}
+
+[id='toggleLikes']{
+  display: none;
+}
+
+[id='toggleLikes']:checked + label {
+  color: #e2264d;
+  animation: animateLike 500ms cubic-bezier(.17, .89, .32, 1.49);
+}
+
+[id='toggleLikes']:checked + label:before, [id='toggleLikes']:checked + label:after {
+  animation: inherit;
+  animation-timing-function: cubic-bezier(0.21, 0.61, 0.35, 1);
+}
+
+[id='toggleLikes']:checked + label:before {
+  will-change: transform, border-color, border-width;
+  animation: bubble 1s;
+}
+
+.iconsCtn label {
+  color: #aab8c2;
+  position: relative;
+  z-index: 2;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.iconsCtn label:before, .iconsCtn label:after{
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  content: "";
+}
+
+.iconsCtn label:before{
+  box-sizing: border-box;
+  border: solid 2px #e2264d;
+  width: 30px;
+  height: 30px;
+  margin: -15px;
+  transform: scale(0);
+}
+
+@keyframes animateLike {
+  0%, 17.5% { transform: scale(0) }
+}
+
+@keyframes bubble {
+  15% {
+    border-color: #e2264d;
+    border-width: 2px;
+    transform: scale(1);
+  }
+  30%, 100% {
+    border-color: #e2264d;
+    border-width: 0;
+    transform: scale(1);
+  }
+}
+
+.card-body{
+  padding: 5px !important;
+}
+.card-title{
+  font-size: 0.7rem !important;
+  text-align: center;
+  margin-bottom: 0 !important;
+}
+
+.btn{
+  background-color: #C7C7A6 !important;
+  border: none !important;
+}
+
+.btn:hover{
+  background-color: #A49966 !important;
+}
+
+.footer{
+  font-size: 0.75rem;
+  background-color: #e7e9d8;
+}
+
+.itemView h1{
+  margin:0 10px 0 0;
+  font-size: 2rem;
+}
+
+.shortcuts a {
+  margin-right: 10px;
+}
+
+.shortcuts img{
+  max-width: 20px;
+  height: auto;
+}
