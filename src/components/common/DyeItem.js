@@ -13,12 +13,12 @@ function DyeItem({item, allDyes, itemDetail}) {
                     <div className="overlayText">
                         {!itemDetail && <span className="title">{item.name}</span>}
                         <span className="creator">Submitted by {item.creator}</span>
-                        <div className="iconsCtn mt-4">
-                            <input id="toggleLikes" type="checkbox"/>
-                            <label htmlFor="toggleLikes">
-                                <FontAwesomeIcon icon={faHeart} />
-                            </label>
-                        </div>
+                        {/*<div className="iconsCtn mt-4">*/}
+                        {/*    <input id="toggleLikes" type="checkbox"/>*/}
+                        {/*    <label htmlFor="toggleLikes">*/}
+                        {/*        <FontAwesomeIcon icon={faHeart} />*/}
+                        {/*    </label>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </NavLink>

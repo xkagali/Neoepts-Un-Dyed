@@ -2,9 +2,9 @@ import React from 'react';
 import {Col, Row, Button} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCaretLeft, faCaretRight} from "@fortawesome/free-solid-svg-icons";
-import DyeItem from "./DyeItem";
+import DyeItem from "./common/DyeItem";
 
-function AllDyes({itemDetail, itemList}) {
+function AllDyesView({itemDetail, itemList}) {
 
     let recentDyes = []
     itemList.forEach(item=>{
@@ -46,4 +46,4 @@ function AllDyes({itemDetail, itemList}) {
     );
 }
 
-export default AllDyes;
+export default AllDyesView;

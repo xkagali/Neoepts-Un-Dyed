@@ -8,7 +8,7 @@ import Footer from "./components/common/Footer";
 import UserDetails from "./components/common/UserDetails";
 import UserRegistration from "./components/UserRegistration";
 import dummyData from "./lib/js/dummyData";
-import AllDyes from "./components/common/AllDyes";
+import AllDyesView from "./components/AllDyesView";
 import {Container} from "react-bootstrap";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
                 </Route>
                 <Route path="/unofficial-dyes">
                     <Container>
-                        <AllDyes itemList={allItems} />
+                        <AllDyesView itemList={allItems} />
                     </Container>
                 </Route>
                 <Route path="/user/:userID">

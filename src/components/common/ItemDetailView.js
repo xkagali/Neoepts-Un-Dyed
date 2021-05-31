@@ -14,7 +14,6 @@ function ItemDetailView({itemList}) {
     useEffect(() => {
         let foundItem = itemList.find(element => element.id === itemID)
         setItem(foundItem)
-
     }, [itemID])
 
     if (item) {

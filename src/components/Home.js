@@ -44,9 +44,12 @@ function Home({itemList}) {
 
     function searchCheck(e){
         console.log(e.target.value)
-        // if (e.key === 'Enter') {
-        //     history.push("/items?q=fan")
-        // }
+        if (e.key === 'Enter') {
+            history.push({
+                pathname: "/items",
+                search: `q=${e.target.value}`
+            })
+        }
     }
 
     return (
@@ -55,7 +58,7 @@ function Home({itemList}) {
                 <Col className={"col-12 d-flex flex-column justify-content-center align-items-center"}>
                     <h1 className={"brandtitle"}>Neopets <span className={"colorChange"}>Un-dyed</span></h1>
                     <div className={"subtitle my-3"}>a site for unofficial dyeworks contributed by creators</div>
-                    <div className="searchHomeCtn my-4">Does <input type="text" onKeyPress={(e) => searchCheck(e)} value={item} onChange={(e)=> setItem(e.target.value)} className="searchHome rounded"/> have any unofficial dyes?</div>
+                    <div className="searchHomeCtn my-4">Does <input type="text" onKeyPress={(e) => searchCheck(e)} onChange={(e)=> setItem(e.target.value)} className="searchHome rounded"/> have any unofficial dyes?</div>
                 </Col>
             </Row>
             <Row>
