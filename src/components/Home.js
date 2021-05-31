@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Row, Col, Container} from "react-bootstrap"
 import {NavLink, useHistory} from "react-router-dom"
-import AllDyes from "./common/AllDyes";
 import AllItems from "./common/AllItems";
+import DyeItem from "./common/DyeItem";
 
 function Home({itemList}) {
 
@@ -80,7 +80,13 @@ function Home({itemList}) {
                         <Col className={"col-6 d-flex flex-row align-items-center justify-content-end"}><NavLink to={"/unofficial-dyes"}><h6>view all recent unofficial dyes</h6></NavLink></Col>
                     </Row>
                 </Col>
-                {filtered ? <AllDyes mostRecent={true} recentItems={filtered} /> : "Loading..." }
+                <Row className="recentCtn">
+                    {filtered ?
+                        filtered.map(items =>(
+                            <DyeItem key={items.id} item={items} />
+                        )) : "Loading..."
+                    }
+                </Row>
             </Row>
         </Container>
     );

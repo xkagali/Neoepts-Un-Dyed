@@ -1,39 +1,47 @@
 import React from 'react';
-import {Col, Image, Row, Button} from "react-bootstrap";
+import {Col, Row, Button} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {NavLink} from "react-router-dom"
-import {faCaretLeft, faCaretRight, faHeart} from "@fortawesome/free-solid-svg-icons";
+import {faCaretLeft, faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import DyeItem from "./DyeItem";
 
-function AllDyes({mostRecent, itemDetail, recentItems}) {
+function AllDyes({itemDetail, itemList}) {
+
+    let recentDyes = []
+    itemList.forEach(item=>{
+        if(item.dyesList){ //if dyelist exists
+            item.dyesList.forEach(submit =>{ //for each dyework submission, create a new obj
+                let newObj = {
+                    "name": item.name,
+                    "id": item.id,
+                    "creator": submit.creator,
+                    "imageUrl": submit.imageUrl,
+                    "dateSubmitted": submit.dateSubmitted,
+                    "dyeID": submit.dyeId
+                }
+                recentDyes.push(newObj) //push into array
+            })
+        }
+    })
+    //sort array
+    let filtered = recentDyes.sort((a,b) => {
+        return b.dyeID - a.dyeID;
+    }).filter((value,index)=>{
+        return index < 30
+    })
+
     return (
         <Row className="my-4">
-            {(!mostRecent && !itemDetail) && <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>}
-            {(!mostRecent && !itemDetail) && <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>}
+            {!itemDetail && <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>}
+            {!itemDetail && <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>}
             <Row className="recentCtn mx-0">
-                {mostRecent && recentItems.map(item=>(
-                    <Col className="my-4" key={item.id}>
-                        <NavLink to={`/items/${item.id}`}>
-                            <Image src={item.imageUrl} fluid className="border"/>
-                            <div className={"overlayCtn"}>
-                                <div className="overlayText">
-                                    <span className="title">{item.name}</span>
-                                    <span className="creator">Submitted by {item.creator}</span>
-                                    <div className="iconsCtn mt-4">
-                                        <input id="toggleLikes" type="checkbox"/>
-                                        <label htmlFor="toggleLikes">
-                                            <FontAwesomeIcon icon={faHeart} />
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </NavLink>
-                    </Col>
-                ))
-
+                {filtered ?
+                    filtered.map(items =>(
+                        <DyeItem allDyes={true} key={items.id} item={items} />
+                    )) : "Loading..."
                 }
             </Row>
-            {!mostRecent && <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>}
-            {!mostRecent && <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>}
+            <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>
+            <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>
         </Row>
     );
 }

@@ -136,16 +136,15 @@ h6{
 }
 
 .recentCtn .col{
-  padding: 0;
-  margin-right: 15px;
-  margin-left: 15px;
   overflow: hidden;
 }
 
 .overlayCtn{
   position: absolute;
   background-color: rgba(0,0,0,0.7);
-  width:100%;
+  width:calc(100% - 30px);
+  margin: 0 15px;
+  padding: 25px;
   height: 100%;
   bottom: 0;
   left: 0;
@@ -153,6 +152,11 @@ h6{
   transform: translate(0px, 100%);
   transition: all 250ms ease-in-out;
   opacity: 0;
+}
+
+.votedCtn .overlayCtn{
+  margin: 0;
+  width: 100%;
 }
 
 .recentCtn .col:hover .overlayCtn, .votedCtn:hover .overlayCtn{

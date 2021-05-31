@@ -29,7 +29,7 @@ function App() {
                 </Route>
                 <Route path="/unofficial-dyes">
                     <Container>
-                        <AllDyes allDyes={true} />
+                        <AllDyes itemList={allItems} />
                     </Container>
                 </Route>
                 <Route path="/user/:userID">

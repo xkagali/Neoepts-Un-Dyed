@@ -7,8 +7,6 @@ import AllItems from "./common/AllItems";
 function ItemListView({itemList}) {
     //get query string from search here, then use it to filter array
 
-
-
     // const [items30, set30Items] = React.useState([])
     let curr30 = [];
 
