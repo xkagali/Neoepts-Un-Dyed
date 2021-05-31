@@ -1,10 +1,13 @@
 import React from 'react';
-import {Col, Container, Row, Card, Image, Button} from "react-bootstrap";
+import {Col, Container, Row, Button} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import AllItems from "./common/AllItems";
 
 function ItemListView({itemList}) {
+    //get query string from search here, then use it to filter array
+
+
 
     // const [items30, set30Items] = React.useState([])
     let curr30 = [];

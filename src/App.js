@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./components/common/Navigation";
 import Home from "./components/Home"
@@ -12,7 +12,7 @@ import AllDyes from "./components/common/AllDyes";
 import {Container} from "react-bootstrap";
 
 function App() {
-    const [allItems, setItemList] = React.useState(dummyData);
+    const [allItems, ] = React.useState(dummyData);
 
     return (
         <BrowserRouter>
@@ -25,7 +25,7 @@ function App() {
                     <ItemListView itemList={allItems} />
                 </Route>
                 <Route path="/items/:itemID">
-                    <ItemDetailView />
+                    <ItemDetailView itemList={allItems} />
                 </Route>
                 <Route path="/unofficial-dyes">
                     <Container>

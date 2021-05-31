@@ -6,7 +6,7 @@ function AllItems({item, itemListView}) {
     return (
         <>
             <Col key={item.id} className={itemListView && "col-2 my-3"}>
-                <NavLink to={`/items/:itemID`}>
+                <NavLink to={`/items/${item.id}`}>
                     <Card>
                         <div className="votedCtn">
                             <Image src={item.thumbnailUrl} fluid/>
