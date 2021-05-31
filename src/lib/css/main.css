@@ -242,6 +242,10 @@ h6{
   }
 }
 
+.card{
+  height: 100%;
+}
+
 .card-body{
   padding: 5px !important;
 }

@@ -1,88 +1,31 @@
 import React from 'react';
-import {Col, Image, Row, Button} from "react-bootstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {NavLink} from "react-router-dom"
-import {faCaretLeft, faCaretRight, faHeart, faPlusSquare} from "@fortawesome/free-solid-svg-icons";
+import {Col, Image, Card} from "react-bootstrap"
+import {NavLink} from "react-router-dom";
 
-function AllItems() {
+function AllItems({item, itemListView}) {
     return (
-        <Row className="my-4">
-            <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: </h6></Col>
-            <Col className="col-6 text-right my-2"><Button><FontAwesomeIcon icon={faPlusSquare} /> Vote</Button></Col>
-            <Row className="recentCtn mx-0">
-                <Col className="my-4">
-                    <NavLink to={`/items/:itemID`}>
-                        <Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
+        <>
+            <Col key={item.id} className={itemListView && "col-2 my-3"}>
+                <NavLink to={`/items/:itemID`}>
+                    <Card>
+                        <div className="votedCtn">
+                            <Image src={item.thumbnailUrl} fluid/>
+                            {!itemListView && <>
+                                <div className={"overlayCtn"}>
+                                    <div className="overlayText">
+                                        votes<br/>{item.totalVotes}
+                                    </div>
                                 </div>
-                            </div>
+                            </>}
                         </div>
-                    </NavLink>
-                </Col>
-                <Col className="my-4">
-                    <NavLink to={`/items/:itemID`}>
-                        <Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </NavLink>
-                </Col>
-                <Col className="my-4">
-                    <NavLink to={`/items/:itemID`}>
-                        <Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </NavLink>
-                </Col>
-                <Col className="my-4">
-                    <NavLink to={`/items/:itemID`}>
-                        <Image src="http://i.imgur.com/a3uHPdA.jpg" fluid className="border"/>
-                        <div className={"overlayCtn"}>
-                            <div className="overlayText">
-                                <span className="title">Silver Key Garland</span>
-                                <span className="creator">Submitted by Kagali</span>
-                                <div className="iconsCtn mt-4">
-                                    <input id="toggleLikes" type="checkbox"/>
-                                    <label htmlFor="toggleLikes">
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </NavLink>
-                </Col>
-            </Row>
-            <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>
-            <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>
-        </Row>
-    );
+                        <Card.Body className={"d-flex align-items-center justify-content-center"}>
+                            <Card.Title>{item.name}</Card.Title>
+                        </Card.Body>
+                    </Card>
+                </NavLink>
+            </Col>
+        </>
+    )
 }
 
 export default AllItems;

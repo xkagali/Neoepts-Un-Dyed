@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
-import AllItems from "./common/AllItems";
+import AllItems from "./AllItems";
 
 function UserDetails() {
     return (

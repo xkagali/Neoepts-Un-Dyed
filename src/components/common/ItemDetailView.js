@@ -1,6 +1,6 @@
 import React from 'react';
-import {Col, Container, Image, Row, Card, Button} from "react-bootstrap";
-import AllItems from "./AllItems";
+import {Col, Container, Image, Row} from "react-bootstrap";
+import AllDyes from "./AllDyes";
 
 function ItemDetailView() {
     return (
@@ -25,7 +25,7 @@ function ItemDetailView() {
                     </Row>
                 </Col>
             </Row>
-            <AllItems />
+            <AllDyes />
         </Container>
     );
 }

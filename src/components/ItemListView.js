@@ -2,157 +2,29 @@ import React from 'react';
 import {Col, Container, Row, Card, Image, Button} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import AllItems from "./common/AllItems";
 
-function ItemListView() {
+function ItemListView({itemList}) {
+
+    // const [items30, set30Items] = React.useState([])
+    let curr30 = [];
+
+    for (let i = 0; i < itemList.length; i++) {
+        if (i <= 29) {
+            curr30.push(itemList[i])
+        }
+    }
+
     return (
         <Container>
             <Row className="my-4">
                 <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>
                 <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col className="col-2 my-3">
-                    <Card>
-                        <Image src="http://images.neopets.com/items/mall_fg_bioluminescentbay.gif" fluid/>
-                        <Card.Body>
-                            <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </Col>
+                <Row className={"my-2 mx-0 d-flex align-items-stretch"}>
+                    {curr30.map(items=>(
+                        <AllItems item={items} itemListView={true}/>
+                    ))}
+                </Row>
                 <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>
                 <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>
             </Row>

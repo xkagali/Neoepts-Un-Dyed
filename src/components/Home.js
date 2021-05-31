@@ -1,11 +1,22 @@
 import React from 'react';
 import {Row, Col, Container, Image, Card} from "react-bootstrap"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import {NavLink} from "react-router-dom"
+import AllDyes from "./common/AllDyes";
 import AllItems from "./common/AllItems";
 
-function Home() {
+function Home({itemList}) {
+    let sortVotes = itemList.sort((a, b) => {
+        return b.totalVotes - a.totalVotes
+    })
+
+    let topTenVoted = [];
+
+    for (let i = 0; i < sortVotes.length; i++) {
+        if (i <= 9) {
+            topTenVoted.push(sortVotes[i])
+        }
+    }
+
     return (
         <Container>
             <Row className="my-4">
@@ -19,179 +30,25 @@ function Home() {
                 <Col className={"col-12 pt-5"}>
                     <Row>
                         <Col className={"col-6 d-flex flex-row align-items-center"}><h5 className="mr-2">Top 10 Voted Items</h5> <h6>this month</h6></Col>
-                        <Col className={"col-6 d-flex flex-row align-items-center justify-content-end"}><h6>previous month</h6></Col>
+                        <Col className={"col-6 d-flex flex-row align-items-center justify-content-end"}><NavLink to={"/items"}><h6>view all items</h6></NavLink></Col>
                     </Row>
                 </Col>
-                <Row className={"my-2 mx-0"}>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                    <div className="overlayText">
-                                        votes<br/>100
-                                    </div>
-                                </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink to={`/items/:itemID`}>
-                            <Card>
-                                <div className="votedCtn">
-                                    <Image src="http://images.neopets.com/items/mall_gar_ombrecurtains.gif" fluid/>
-                                    <div className={"overlayCtn"}>
-                                        <div className="overlayText">
-                                            votes<br/>100
-                                        </div>
-                                    </div></div>
-                                <Card.Body>
-                                    <Card.Title>Oceanic Ombre Curtains</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </NavLink>
-                    </Col>
+                <Row className={"my-2 mx-0 d-flex align-items-stretch"}>
+                    {topTenVoted ?
+                        topTenVoted.map(items => (
+                            <AllItems item={items} itemList={itemList} />
+                        )) : "Loading..."
+                    }
                 </Row>
             </Row>
             <Row className="mx-0">
-                <Col className={"col-12 pt-5"}>
-                    <Row className={"d-flex flex-row align-items-center"}>
-                        <h5 className="mr-2">Most Recent Unofficial Dyeworks</h5> <NavLink to={"/unofficial-dyes"}><h6>view all</h6></NavLink>
+                <Col className={"col-12 pt-5 px-0"}>
+                    <Row>
+                        <Col className={"col-6 d-flex flex-row align-items-center"}><h5 className="mr-2">Most Recent Unofficial Dyeworks</h5></Col>
+                        <Col className={"col-6 d-flex flex-row align-items-center justify-content-end"}><NavLink to={"/unofficial-dyes"}><h6>view all recent unofficial dyes</h6></NavLink></Col>
                     </Row>
                 </Col>
-                <AllItems />
+                <AllDyes mostRecent={true} />
             </Row>
         </Container>
     );
