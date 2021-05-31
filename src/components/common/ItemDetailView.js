@@ -1,6 +1,8 @@
 import React from 'react';
-import {Col, Container, Image, Row} from "react-bootstrap";
+import {Col, Container, Image, Row, Button} from "react-bootstrap";
 import AllDyes from "./AllDyes";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlusSquare} from "@fortawesome/free-solid-svg-icons";
 
 function ItemDetailView() {
     return (
@@ -25,7 +27,11 @@ function ItemDetailView() {
                     </Row>
                 </Col>
             </Row>
-            <AllDyes />
+            <Row>
+                <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: </h6></Col>
+                <Col className="col-6 text-right my-2"><Button><FontAwesomeIcon icon={faPlusSquare} /> Vote</Button></Col>
+            </Row>
+            <AllDyes itemDetail={true} />
         </Container>
     );
 }
