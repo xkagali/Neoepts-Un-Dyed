@@ -43,7 +43,6 @@ function Home({itemList}) {
     const history = useHistory()
 
     function searchCheck(e){
-        console.log(e.target.value)
         if (e.key === 'Enter') {
             history.push({
                 pathname: "/items",

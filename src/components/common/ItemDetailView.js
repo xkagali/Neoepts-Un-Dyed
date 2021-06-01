@@ -9,7 +9,7 @@ function ItemDetailView({itemList}) {
     let {itemID} = useParams()
 
     const [item, setItem] = useState([])
-    const [vote, setVote] = useState()
+    // const [vote, setVote] = useState()
     let findDyes;
     useEffect(() => {
         let foundItem = itemList.find(element => element.id === itemID)

@@ -16,7 +16,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Navigation />
+            <Navigation home={true} />
             <Switch>
                 <Route path="/" exact>
                     <Home itemList={allItems} />
