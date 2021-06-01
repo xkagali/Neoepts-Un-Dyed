@@ -28,17 +28,16 @@ function Home({itemList}) {
                     "id": item.id,
                     "creator": submit.creator,
                     "imageUrl": submit.imageUrl,
-                    "dateSubmitted": submit.dateSubmitted,
-                    "dyeID": submit.dyeId
+                    "dateSubmitted": submit.dateSubmitted
                 }
                 recentDyes.push(newObj) //push into array
             })
         }
     })
-    console.log(recentDyes)
+
     //sort array
     let filtered = recentDyes.sort((a,b) => {
-        return b.dyeID - a.dyeID;
+        return b.dateSubmitted - a.dateSubmitted;
     }).filter((value,index)=>{
         return index < 4
     })
@@ -87,8 +86,8 @@ function Home({itemList}) {
                 </Col>
                 <Row className="recentCtn">
                     {filtered ?
-                        filtered.map(items =>(
-                            <DyeItem key={items.id} item={items} />
+                        filtered.map((items, index) =>(
+                            <DyeItem key={index} item={items} home={true} />
                         )) : "Loading..."
                     }
                 </Row>

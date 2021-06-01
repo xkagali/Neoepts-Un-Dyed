@@ -16,11 +16,12 @@ function ItemDetailView({itemList}) {
         let foundItem = itemList.find(element => element.id === itemID)
         setVote(parseInt(foundItem.totalVotes))
         setItem(foundItem)
-        if (item) {
-            findDyes = item.dyesList;
-        }
 
     }, [itemID])
+
+    if (item) {
+        findDyes = item.dyesList;
+    }
 
     function addVoteToItem(){
         setVote(prevState => prevState + 1)

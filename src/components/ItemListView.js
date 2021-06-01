@@ -67,7 +67,6 @@ function ItemListView({itemList}) {
     return (
         <Container>
             <Row className="my-4">
-                {/*if item is less than 30 don't show*/}
                 <Col className="col-6 my-2"><Button onClick={getPrev30}><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>
                 <Col className="col-6 text-right my-2"><Button onClick={getNext30}>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>
                 <Col className={"col-12"}>

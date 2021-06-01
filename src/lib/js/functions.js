@@ -21,6 +21,13 @@ export function addVoteToFirebase(itemID, vote){
     }
 }
 
-export function addDyeToFireBase(){
-    
+export function addDyeToFireBase(dyeSub, itemID){
+    db.collection("itemsList").doc(itemID).update({
+        dyesList: firebase.firestore.FieldValue.arrayUnion(dyeSub)
+    })
+        .then(()=>{
+            console.log("success")
+        }).catch(()=>{
+        console.log("error")
+    })
 }
