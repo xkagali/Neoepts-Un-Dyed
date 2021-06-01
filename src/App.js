@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Navigation from "./components/common/Navigation";
 import Home from "./components/Home"
@@ -7,39 +7,48 @@ import ItemListView from "./components/ItemListView";
 import Footer from "./components/common/Footer";
 import UserDetails from "./components/common/UserDetails";
 import UserRegistration from "./components/UserRegistration";
-import dummyData from "./lib/js/dummyData";
 import AllDyesView from "./components/AllDyesView";
 import {Container} from "react-bootstrap";
+import {getItemsFromFirebase} from "./lib/js/functions";
+import SubmitDye from "./components/SubmitDye";
 
 function App() {
-    const [allItems, ] = React.useState(dummyData);
+    const [allItems, setItems] = React.useState();
+    useEffect(() => {
+        getItemsFromFirebase(setItems)
+    }, [])
 
     return (
         <BrowserRouter>
-            <Navigation home={true} />
-            <Switch>
-                <Route path="/" exact>
-                    <Home itemList={allItems} />
-                </Route>
-                <Route path="/items" exact>
-                    <ItemListView itemList={allItems} />
-                </Route>
-                <Route path="/items/:itemID">
-                    <ItemDetailView itemList={allItems} />
-                </Route>
-                <Route path="/unofficial-dyes">
-                    <Container>
-                        <AllDyesView itemList={allItems} />
-                    </Container>
-                </Route>
-                <Route path="/user/:userID">
-                    <UserDetails />
-                </Route>
-                <Route path="/portal">
-                    <UserRegistration />
-                </Route>
-            </Switch>
-            <Footer />
+            {allItems && <>
+                <Navigation home={true}/>
+                <Switch>
+                    <Route path="/" exact>
+                        <Home itemList={allItems}/>
+                    </Route>
+                    <Route path="/items" exact>
+                        <ItemListView itemList={allItems}/>
+                    </Route>
+                    <Route path="/items/:itemID">
+                        <ItemDetailView itemList={allItems}/>
+                    </Route>
+                    <Route path="/unofficial-dyes" exact>
+                        <Container>
+                            <AllDyesView itemList={allItems}/>
+                        </Container>
+                    </Route>
+                    <Route path="/user/:userID">
+                        <UserDetails/>
+                    </Route>
+                    <Route path="/portal" exact>
+                        <UserRegistration/>
+                    </Route>
+                    <Route path="/submit" exact>
+                        <SubmitDye itemList={allItems}/>
+                    </Route>
+                </Switch>
+                <Footer/>
+            </>}
         </BrowserRouter>
     );
 }

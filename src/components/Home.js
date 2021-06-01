@@ -7,9 +7,11 @@ import DyeItem from "./common/DyeItem";
 function Home({itemList}) {
 
     const [item, setItem] = useState()
+
     let sortVotes = itemList.sort((a, b) => {
         return b.totalVotes - a.totalVotes
     })
+
     let topTenVoted = [];
     for (let i = 0; i < sortVotes.length; i++) {
         if (i <= 9) {
@@ -33,6 +35,7 @@ function Home({itemList}) {
             })
         }
     })
+    console.log(recentDyes)
     //sort array
     let filtered = recentDyes.sort((a,b) => {
         return b.dyeID - a.dyeID;

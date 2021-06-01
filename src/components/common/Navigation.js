@@ -27,7 +27,7 @@ function Navigation() {
                 </Col>
                 <Nav className={"col-7 justify-content-end align-items-center"}>
                     <input type="text" onKeyPress={(e) => searchCheck(e)} onChange={(e)=> setItem(e.target.value)} className="searchbar rounded mr-2"  placeholder="Search"/>
-                    <Button className={"mr-2"}>Submit <FontAwesomeIcon icon={faPlus} /></Button>
+                    <NavLink to={"/submit"}><Button className={"mr-2"}>Submit <FontAwesomeIcon icon={faPlus} /></Button></NavLink>
                     <NavLink to={"/portal"}>Register/Login</NavLink>
                 </Nav>
             </Row>

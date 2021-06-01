@@ -37,7 +37,7 @@ function AllDyesView({itemDetail, itemList}) {
                 {filtered ?
                     filtered.map(items =>(
                         <DyeItem allDyes={true} key={items.id} item={items} />
-                    )) : "Loading..."
+                    )) : ""
                 }
             </Row>
             <Col className="col-6 my-2"><Button><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>

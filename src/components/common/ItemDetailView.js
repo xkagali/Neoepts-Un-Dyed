@@ -4,21 +4,31 @@ import DyeItem from "./DyeItem";
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlusSquare} from "@fortawesome/free-solid-svg-icons";
+import {addVoteToFirebase} from "../../lib/js/functions"
 
 function ItemDetailView({itemList}) {
     let {itemID} = useParams()
 
     const [item, setItem] = useState([])
-    // const [vote, setVote] = useState()
+    const [vote, setVote] = useState()
     let findDyes;
     useEffect(() => {
         let foundItem = itemList.find(element => element.id === itemID)
+        setVote(parseInt(foundItem.totalVotes))
         setItem(foundItem)
+        if (item) {
+            findDyes = item.dyesList;
+        }
+
     }, [itemID])
 
-    if (item) {
-        findDyes = item.dyesList;
+    function addVoteToItem(){
+        setVote(prevState => prevState + 1)
     }
+
+    useEffect(()=>{
+        addVoteToFirebase(item.id, vote)
+    },[vote])
 
 
     return (
@@ -47,14 +57,14 @@ function ItemDetailView({itemList}) {
                 </Col>
             </Row>
             <Row>
-                <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: </h6></Col>
-                <Col className="col-6 text-right my-2"><Button><FontAwesomeIcon
+                <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: {vote}</h6></Col>
+                <Col className="col-6 text-right my-2"><Button onClick={addVoteToItem}><FontAwesomeIcon
                     icon={faPlusSquare}/> Vote</Button></Col>
             </Row>
             <Row className="recentCtn">
                 {findDyes ? findDyes.map(item => (
                     <DyeItem itemDetail={true} item={item}/>
-                )) : "Loading..."}
+                )) : <Col className="my-4 col-12">No unoffical dyes submitted</Col>}
             </Row>
         </Container>
     );
