@@ -7,7 +7,7 @@ import {faHeart} from "@fortawesome/free-solid-svg-icons";
 function DyeItem({item, allDyes, itemDetail, home}) {
     return (
         <Col className={allDyes || itemDetail ? "col-3 my-4" : "my-4"} key={item.id}>
-            {home && <NavLink to={`/items/${item.id}`}>
+            {(home || allDyes) && <NavLink to={`/items/${item.id}`}>
                 <Image src={item.imageUrl} fluid className="border"/>
                 <div className={"overlayCtn"}>
                     <div className="overlayText">
@@ -23,7 +23,7 @@ function DyeItem({item, allDyes, itemDetail, home}) {
                 </div>
             </NavLink>
             }
-            {!home && <>
+            {(!home && !allDyes) && <>
                 <Image src={item.imageUrl} fluid className="border"/>
                 <div className={"overlayCtn"}>
                     <div className="overlayText">

@@ -15,8 +15,7 @@ function AllDyesView({itemDetail, itemList}) {
                     "id": item.id,
                     "creator": submit.creator,
                     "imageUrl": submit.imageUrl,
-                    "dateSubmitted": submit.dateSubmitted,
-                    "dyeID": submit.dyeId
+                    "dateSubmitted": submit.dateSubmitted
                 }
                 recentDyes.push(newObj) //push into array
             })
@@ -24,7 +23,7 @@ function AllDyesView({itemDetail, itemList}) {
     })
     //sort array
     let filtered = recentDyes.sort((a,b) => {
-        return b.dyeID - a.dyeID;
+        return b.dateSubmitted - a.dateSubmitted;
     }).filter((value,index)=>{
         return index < 30
     })
@@ -35,8 +34,8 @@ function AllDyesView({itemDetail, itemList}) {
             {!itemDetail && <Col className="col-6 text-right my-2"><Button>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>}
             <Row className="recentCtn mx-0">
                 {filtered ?
-                    filtered.map(items =>(
-                        <DyeItem allDyes={true} key={items.id} item={items} />
+                    filtered.map((items,index) =>(
+                        <DyeItem allDyes={true} key={index} item={items} />
                     )) : ""
                 }
             </Row>
