@@ -31,3 +31,30 @@ export function addDyeToFireBase(dyeSub, itemID){
         console.log("error")
     })
 }
+
+export function createAccount(email, password){
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed in
+            let user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            // ..
+        });
+}
+
+export function loginAuth(email,password){
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+        });
+}

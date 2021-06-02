@@ -6,6 +6,9 @@ import AllItems from "./common/AllItems";
 import {useLocation} from "react-router-dom";
 
 function ItemListView({itemList}) {
+    itemList.sort((a,b)=>{
+        return b.name - a.name
+    })
     let foundItems;
     let filtered;
     const [itemsAll, setAllItems] = useState([])
@@ -13,6 +16,7 @@ function ItemListView({itemList}) {
     const [offset, setOffset] = useState(0)
     //get query string from search here, then use it to filter array
     const location = useLocation();
+
     if(location.search){
         let queryStr = location.search.substr(location.search.indexOf("=") + 1,location.search.length);
         foundItems = itemList.filter(element => element.name.toLowerCase().includes(queryStr.toLowerCase()));
@@ -41,7 +45,7 @@ function ItemListView({itemList}) {
             setCounter(itemList.length)
         }
 
-        //offset cannot go above itemList.lenght - 30
+        //offset cannot go above itemList.length - 30
         if(offset < itemList.length - 30){
             setOffset(prevState => prevState + 30)
         }else if (offset >= itemList.length - 30){

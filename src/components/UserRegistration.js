@@ -7,6 +7,7 @@ function UserRegistration() {
             <Row className="my-4 justify-content-around">
                 <Col className={"col-4"}>
                     <h2>Register</h2>
+                    Please do not use the same details as your neopets account!<br /><br />
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicUsername">
                             <Form.Label>Username</Form.Label>
@@ -34,12 +35,12 @@ function UserRegistration() {
                 <Col className={"col-4"}>
                     <h2>Login</h2>
                     <Form>
-                        <Form.Group className="mb-3" controlId="formBasicUsername">
+                        <Form.Group className="mb-3" controlId="formEmail">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder="Enter username" />
+                            <Form.Control type="text" placeholder="Enter email" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3" controlId="formPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
