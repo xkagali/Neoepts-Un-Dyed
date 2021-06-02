@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlusSquare} from "@fortawesome/free-solid-svg-icons";
 import {addVoteToFirebase} from "../../lib/js/functions"
 
-function ItemDetailView({itemList}) {
+function ItemDetailView({itemList, logIn}) {
     let {itemID} = useParams()
 
     const [item, setItem] = useState([])
@@ -59,8 +59,8 @@ function ItemDetailView({itemList}) {
             </Row>
             <Row>
                 <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: {vote}</h6></Col>
-                <Col className="col-6 text-right my-2"><Button onClick={addVoteToItem}><FontAwesomeIcon
-                    icon={faPlusSquare}/> Vote</Button></Col>
+                {(logIn === true) && <Col className="col-6 text-right my-2"><Button onClick={addVoteToItem}><FontAwesomeIcon
+                    icon={faPlusSquare}/> Vote</Button></Col>}
             </Row>
             <Row className="recentCtn">
                 {findDyes ? findDyes.map(item => (

@@ -58,7 +58,7 @@ function App() {
                         <ItemListView itemList={allItems}/>
                     </Route>
                     <Route path="/items/:itemID">
-                        <ItemDetailView itemList={allItems}/>
+                        <ItemDetailView itemList={allItems} logIn={loggedIn} user={user}/>
                     </Route>
                     <Route path="/unofficial-dyes" exact>
                         <Container>
@@ -66,7 +66,7 @@ function App() {
                         </Container>
                     </Route>
                     <Route path="/user/:userID">
-                        <UserDetails/>
+                        <UserDetails logIn={loggedIn}/>
                     </Route>
                     <Route path="/portal" exact>
                         <UserRegistration/>
@@ -75,7 +75,7 @@ function App() {
                         <Success />
                     </Route>
                     <Route path="/submit" exact>
-                        <SubmitDye itemList={allItems}/>
+                        <SubmitDye itemList={allItems} logIn={loggedIn} user={user}/>
                     </Route>
                 </Switch>
                 <Footer/>

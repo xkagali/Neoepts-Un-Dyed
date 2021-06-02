@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
 import {Col, Container, Row, Form, Button} from "react-bootstrap";
 import {addDyeToFireBase} from "../lib/js/functions";
+import {Redirect} from "react-router-dom";
 
-function SubmitDye({itemList}) {
-
+function SubmitDye({itemList, logIn, user}) {
     const [newDye, setNewDye] = useState([])
+
+    if(logIn === false){
+        return <Redirect to={"/portal"} />
+    }
 
     function change(e){
         setNewDye(currState => ({...currState, ...{[e.target.name] : e.target.value}}))
@@ -12,7 +16,8 @@ function SubmitDye({itemList}) {
 
     function addDyesToItem(){
         let temp = {
-            creator: newDye.creator,
+            uid: user.uid,
+            creator: user.displayName,
             imageUrl: newDye.imageUrl,
             dateSubmitted: new Date()
         }
@@ -38,12 +43,6 @@ function SubmitDye({itemList}) {
                 <Col className="col-6">
                     Dye image url (direct link from imgur.com)
                     <Form.Control name={"imageUrl"} onChange={change} />
-                </Col>
-            </Row>
-            <Row className="justify-content-center">
-                <Col className="col-6">
-                    Creator name
-                    <Form.Control name={"creator"} onChange={change} />
                 </Col>
             </Row>
             <Row className="justify-content-center">
