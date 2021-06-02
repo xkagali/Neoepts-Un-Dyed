@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 function AllItems({item, itemListView, itemListViewLess}) {
     return (
         <>
-            <Col key={item.id} className={itemListView && "col-2 my-3" || itemListViewLess && "col-3 my-3"}>
+            <Col key={item.id} className={(itemListView && "col-2 my-3") || (itemListViewLess && "col-3 my-3")}>
                 <NavLink to={`/items/${item.id}`}>
                     <Card>
                         <div className="votedCtn">

@@ -44,11 +44,11 @@ function ItemDetailView({itemList}) {
                             <h1>{item.name}</h1>
                             <span className="shortcuts">
                                 <a href={`https://impress.openneo.net/items?utf8=%E2%9C%93&q=${item.name}`}
-                                   target="_blank"><Image src="https://wakaguide.com/images/dti.png"/></a>
+                                   target="_blank" rel="noreferrer" ><Image src="https://wakaguide.com/images/dti.png"/></a>
                                 <a href={`https://impress-2020.openneo.net/items/search/${item.name}`}
-                                   target="_blank"><Image src="https://wakaguide.com/images/2020dti.png"/></a>
+                                   target="_blank" rel="noreferrer" ><Image src="https://wakaguide.com/images/2020dti.png"/></a>
                                 <a href={`https://items.jellyneo.net/search/?name=${item.name}&name_type=1`}
-                                   target="_blank"><Image src="https://wakaguide.com/images/jn.png"/></a>
+                                   target="_blank" rel="noreferrer" ><Image src="https://wakaguide.com/images/jn.png"/></a>
                             </span>
                         </Col>
                         <Col className="col-12 mt-2">

@@ -1,33 +1,88 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Col, Container, Row, Form, Button} from "react-bootstrap";
+import {useHistory} from "react-router-dom";
+import firebase from "../lib/js/firebase";
+import "firebase/auth";
+const db = firebase.firestore();
 
 function UserRegistration() {
+
+    const history = useHistory()
+    const [tempAcc, setTempAcc] = useState({
+        displayName: '',
+        email: '',
+        password: ''
+    })
+
+    const [login, setLogin] = useState({
+        email: '',
+        password: ''
+    })
+
+    function change(e){
+        setTempAcc({...tempAcc, [e.target.name]:e.target.value})
+    }
+
+    function loginChange(e){
+        setLogin({...login, [e.target.name]:e.target.value})
+    }
+
+    function setUpAccount(e){
+        firebase.auth().createUserWithEmailAndPassword(tempAcc.email, tempAcc.password)
+            .then((userCredential) => {
+                history.push('/success')
+                db.collection("userList")
+                    .doc(`${userCredential.user.uid}`)
+                    .set({
+                        displayName: tempAcc.displayName,
+                        uid: userCredential.user.uid
+                    })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        firebase.auth().signOut();
+        e.preventDefault();
+    }
+
+    function checkLogin(e){
+        firebase.auth().signInWithEmailAndPassword(login.email, login.password)
+            .then(() => {
+                history.push('/')
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        e.preventDefault();
+    }
+
     return (
         <Container>
             <Row className="my-4 justify-content-around">
                 <Col className={"col-4"}>
                     <h2>Register</h2>
                     Please do not use the same details as your neopets account!<br /><br />
+                    {tempAcc.error && <h4>{tempAcc.error}</h4>}
                     <Form>
-                        <Form.Group className="mb-3" controlId="formBasicUsername">
-                            <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder="Enter username" />
+                        <Form.Group className="mb-3">
+                            <Form.Label>Display Name</Form.Label>
+                            <Form.Control type="text" name={"displayName"} onChange={change} placeholder="Enter your display name" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control type="email" name={"email"} onChange={change} placeholder="Enter email" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" name={"password"} onChange={change} placeholder="Password" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPasswordConfirm">
-                            <Form.Control type="passwordConfirm" placeholder="Confirm Password" />
+                        <Form.Group className="mb-3">
+                            <Form.Control type="password" name={"confirmPassword"} onChange={change} placeholder="Confirm Password" />
                         </Form.Group>
-                        <Button variant="primary" type="submit">
+                        <Button onClick={setUpAccount} variant="primary" type="submit">
                             Submit
                         </Button>
                     </Form>
@@ -35,17 +90,17 @@ function UserRegistration() {
                 <Col className={"col-4"}>
                     <h2>Login</h2>
                     <Form>
-                        <Form.Group className="mb-3" controlId="formEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder="Enter email" />
+                            <Form.Control type="text" name={"email"} onChange={loginChange} placeholder="Enter email" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formPassword">
+                        <Form.Group className="mb-3">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" name={"password"} onChange={loginChange} placeholder="Password" />
                         </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Submit
+                        <Button onClick={checkLogin} variant="primary" type="submit">
+                            Login
                         </Button>
                     </Form>
                 </Col>

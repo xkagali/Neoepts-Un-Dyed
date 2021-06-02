@@ -1,15 +1,30 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Col, Container, Nav, Row, Button} from "react-bootstrap";
 import {NavLink, useHistory} from "react-router-dom"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import firebase from "firebase";
+import "firebase/auth";
 
-function Navigation() {
-    const [item, setItem] = useState()
+function Navigation({logIn, resetLogIn, user, resetUser}) {
     const history = useHistory()
 
+    function logout(e){
+        firebase.auth().signOut().then(() => {
+            let temp = {
+                displayName: "",
+                uid: ""
+            }
+            resetUser(temp)
+            resetLogIn(false)
+            history.push('/portal')
+        }).catch((error) => {
+            // An error happened.
+        });
+        e.preventDefault()
+    }
+
     function searchCheck(e){
-        console.log(e.target.value)
         if (e.key === 'Enter') {
             history.push({
                 pathname: "/items",
@@ -26,9 +41,15 @@ function Navigation() {
                     <NavLink to={"/"} exact>Neopets <span className="colorChange">Un-dyed</span></NavLink>
                 </Col>
                 <Nav className={"col-7 justify-content-end align-items-center"}>
-                    <input type="text" onKeyPress={(e) => searchCheck(e)} onChange={(e)=> setItem(e.target.value)} className="searchbar rounded mr-2"  placeholder="Search"/>
-                    <NavLink to={"/submit"}><Button className={"mr-2"}>Submit <FontAwesomeIcon icon={faPlus} /></Button></NavLink>
-                    <NavLink to={"/portal"}>Register/Login</NavLink>
+                    <input type="text" onKeyPress={(e) => searchCheck(e)} className="searchbar rounded mr-2"  placeholder="Search"/>
+                    {(logIn === true) &&
+                        <>
+                            <span className={"mx-2"}>{user.displayName}</span> |
+                            <NavLink to={"/submit"}><Button className={"mx-2"}>Submit <FontAwesomeIcon icon={faPlus}/></Button></NavLink> |
+                            <Button onClick={logout} className={"btnLink ml-2"}>Logout</Button>
+                        </>
+                    }
+                    {(logIn === false) && <NavLink to={"/portal"}>Register/Login</NavLink>}
                 </Nav>
             </Row>
         </Container>

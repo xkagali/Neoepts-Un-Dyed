@@ -7,7 +7,7 @@ function SubmitDye({itemList}) {
     const [newDye, setNewDye] = useState([])
 
     function change(e){
-        setNewDye(currState => ({...currState, ... {[e.target.name] : e.target.value}}))
+        setNewDye(currState => ({...currState, ...{[e.target.name] : e.target.value}}))
     }
 
     function addDyesToItem(){

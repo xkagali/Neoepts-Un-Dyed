@@ -289,3 +289,16 @@ h6{
   max-width: 20px;
   height: auto;
 }
+
+.btnLink{
+  background: none !important;
+  color: #C7C7A6 !important;
+  padding: 0 !important;
+}
+
+.btnLink:hover{
+  background: none !important;
+  color: #C7C7A6 !important;
+  text-decoration: underline !important;
+  padding: 0 !important;
+}

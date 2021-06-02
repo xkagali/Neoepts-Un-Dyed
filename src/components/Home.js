@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Row, Col, Container} from "react-bootstrap"
 import {NavLink, useHistory} from "react-router-dom"
 import AllItems from "./common/AllItems";
 import DyeItem from "./common/DyeItem";
 
 function Home({itemList}) {
-
-    const [item, setItem] = useState()
 
     let sortVotes = itemList.sort((a, b) => {
         return b.totalVotes - a.totalVotes
@@ -59,7 +57,7 @@ function Home({itemList}) {
                 <Col className={"col-12 d-flex flex-column justify-content-center align-items-center"}>
                     <h1 className={"brandtitle"}>Neopets <span className={"colorChange"}>Un-dyed</span></h1>
                     <div className={"subtitle my-3"}>a site for unofficial dyeworks contributed by creators</div>
-                    <div className="searchHomeCtn my-4">Does <input type="text" onKeyPress={(e) => searchCheck(e)} onChange={(e)=> setItem(e.target.value)} className="searchHome rounded"/> have any unofficial dyes?</div>
+                    <div className="searchHomeCtn my-4">Does <input type="text" onKeyPress={(e) => searchCheck(e)} className="searchHome rounded"/> have any unofficial dyes?</div>
                 </Col>
             </Row>
             <Row>
