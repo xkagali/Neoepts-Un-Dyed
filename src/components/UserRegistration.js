@@ -11,7 +11,8 @@ function UserRegistration({logIn}) {
     const [tempAcc, setTempAcc] = useState({
         displayName: '',
         email: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
     })
 
     const [login, setLogin] = useState({
@@ -27,7 +28,16 @@ function UserRegistration({logIn}) {
         setLogin({...login, [e.target.name]:e.target.value})
     }
 
-    function setUpAccount(e){
+    function checkPassword(e){
+        if(tempAcc.password === tempAcc.confirmPassword){
+            setUpAccount()
+        }else{
+            alert("password does not match");
+        }
+        e.preventDefault();
+    }
+
+    function setUpAccount(){
         firebase.auth().createUserWithEmailAndPassword(tempAcc.email, tempAcc.password)
             .then((userCredential) => {
                 history.push('/success')
@@ -42,7 +52,6 @@ function UserRegistration({logIn}) {
                 console.log(error);
             });
         firebase.auth().signOut();
-        e.preventDefault();
     }
 
     function checkLogin(e){
@@ -86,7 +95,7 @@ function UserRegistration({logIn}) {
                         <Form.Group className="mb-3">
                             <Form.Control type="password" name={"confirmPassword"} onChange={change} placeholder="Confirm Password" />
                         </Form.Group>
-                        <Button onClick={setUpAccount} variant="primary" type="submit">
+                        <Button onClick={checkPassword} variant="primary" type="submit">
                             Submit
                         </Button>
                     </Form>

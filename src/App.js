@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import Navigation from "./components/common/Navigation";
 import Home from "./components/Home"
 import ItemDetailView from "./components/common/ItemDetailView";
@@ -43,15 +43,18 @@ function App() {
                         <ItemListView itemList={allItems}/>
                     </Route>
                     <Route path="/items/:itemID">
-                        <ItemDetailView itemList={allItems} logIn={loggedIn} user={user} setUser={setUser} />
+                        <ItemDetailView itemList={allItems} logIn={loggedIn} user={user} setUser={setUser}/>
                     </Route>
                     <Route path="/unofficial-dyes" exact>
                         <Container>
                             <AllDyesView itemList={allItems}/>
                         </Container>
                     </Route>
+                    <Route path="/user/" exact>
+                        <Redirect to={"/portal"}/>
+                    </Route>
                     <Route path="/user/:userID" exact>
-                        <UserDetails user={user} logIn={loggedIn} itemList={allItems} />
+                        <UserDetails user={user} logIn={loggedIn} itemList={allItems}/>
                     </Route>
                     <Route path="/portal" exact>
                         <UserRegistration logIn={loggedIn}/>
