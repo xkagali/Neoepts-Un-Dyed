@@ -29,7 +29,7 @@ function SubmitDye({itemList, logIn, user}) {
     return (
         <Container className="my-4">
             <Row className="justify-content-center">
-                <Col className="col-6">
+                <Col className="col-6 mb-4">
                     Choose Item
                     <Form.Control as="select" onChange={change} name={"id"}>
                         <option value={``}>Item Name</option>
@@ -40,7 +40,7 @@ function SubmitDye({itemList, logIn, user}) {
                 </Col>
             </Row>
             <Row className="justify-content-center">
-                <Col className="col-6">
+                <Col className="col-6 mb-4">
                     Dye image url (direct link from imgur.com)
                     <Form.Control name={"imageUrl"} onChange={change} />
                 </Col>

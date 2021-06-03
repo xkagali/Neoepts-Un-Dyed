@@ -4,19 +4,20 @@ import DyeItem from "./DyeItem";
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlusSquare} from "@fortawesome/free-solid-svg-icons";
-import {addVoteToFirebase} from "../../lib/js/functions"
+import {addVoteToFirebase, getUser} from "../../lib/js/functions"
 
-function ItemDetailView({itemList, logIn}) {
+function ItemDetailView({itemList, logIn, user, setUser}) {
     let {itemID} = useParams()
-
     const [item, setItem] = useState([])
     const [vote, setVote] = useState()
+    const [votedBefore, setVotedBefore] = useState(false)
+
     let findDyes;
     useEffect(() => {
         let foundItem = itemList.find(element => element.id === itemID)
         setVote(parseInt(foundItem.totalVotes))
         setItem(foundItem)
-
+        findVote()
     }, [itemID])
 
     if (item) {
@@ -25,10 +26,21 @@ function ItemDetailView({itemList, logIn}) {
 
     function addVoteToItem(){
         setVote(prevState => prevState + 1)
+        getUser(setUser)
+        setVotedBefore(true)
+    }
+
+    function findVote() {
+        let foundVote = user.votedItems?.find(element => element === itemID);
+        console.log(foundVote)
+        if (foundVote) {
+            setVotedBefore(true)
+        }
     }
 
     useEffect(()=>{
-        addVoteToFirebase(item.id, vote)
+        addVoteToFirebase(item.id, vote, user.uid)
+        findVote()
     },[vote])
 
 
@@ -59,8 +71,9 @@ function ItemDetailView({itemList, logIn}) {
             </Row>
             <Row>
                 <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: {vote}</h6></Col>
-                {(logIn === true) && <Col className="col-6 text-right my-2"><Button onClick={addVoteToItem}><FontAwesomeIcon
+                {(logIn === true && votedBefore === false) && <Col className="col-6 text-right my-2"><Button onClick={addVoteToItem}><FontAwesomeIcon
                     icon={faPlusSquare}/> Vote</Button></Col>}
+                {(logIn === true && votedBefore === true) && <Col className="col-6 text-right my-2"><Button disabled>Voted</Button></Col>}
             </Row>
             <Row className="recentCtn">
                 {findDyes ? findDyes.map(item => (

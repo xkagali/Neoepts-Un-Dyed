@@ -9,7 +9,7 @@ import UserDetails from "./components/common/UserDetails";
 import UserRegistration from "./components/UserRegistration";
 import AllDyesView from "./components/AllDyesView";
 import {Container} from "react-bootstrap";
-import {getItemsFromFirebase} from "./lib/js/functions";
+import {getItemsFromFirebase, getUser} from "./lib/js/functions";
 import SubmitDye from "./components/SubmitDye";
 import Success from "./components/Success";
 import firebase from "firebase";
@@ -23,28 +23,15 @@ function App() {
     useEffect(() => {
         getItemsFromFirebase(setItems)
 
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                firebase.firestore().collection('userList').doc(firebase.auth().currentUser.uid)
-                .get().then((doc) => {
-                    if (doc.exists) {
-                        let temp = {
-                            displayName: doc.data().displayName,
-                            uid: doc.data().uid
-                        }
-                        setUser(temp)
-                        setLoggedIn(true)
-                    } else {
-                        // doc.data() will be undefined in this case
-                        console.log("No such user!");
-                    }
-                }).catch((error) => {
-                    console.log("Error getting user:", error);
-                });
+                getUser(setUser)
+                setLoggedIn(true)
             }
         });
-
     }, [])
+
+    console.log(user)
 
     return (
         <BrowserRouter>
@@ -58,7 +45,7 @@ function App() {
                         <ItemListView itemList={allItems}/>
                     </Route>
                     <Route path="/items/:itemID">
-                        <ItemDetailView itemList={allItems} logIn={loggedIn} user={user}/>
+                        <ItemDetailView itemList={allItems} logIn={loggedIn} user={user} setUser={setUser} />
                     </Route>
                     <Route path="/unofficial-dyes" exact>
                         <Container>
@@ -72,7 +59,7 @@ function App() {
                         <UserRegistration/>
                     </Route>
                     <Route path="/success" exact>
-                        <Success />
+                        <Success/>
                     </Route>
                     <Route path="/submit" exact>
                         <SubmitDye itemList={allItems} logIn={loggedIn} user={user}/>
