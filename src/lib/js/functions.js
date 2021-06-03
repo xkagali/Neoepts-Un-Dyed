@@ -28,8 +28,7 @@ export function addVoteToFirebase(itemID, vote, userID){
         })
     }
 }
-
-export function addDyeToFireBase(dyeSub, itemID){
+export function addDyeToFireBase(dyeSub, dyeUser, itemID, userID){
     db.collection("itemsList").doc(itemID).update({
         dyesList: firebase.firestore.FieldValue.arrayUnion(dyeSub)
     })
@@ -47,7 +46,8 @@ export function getUser(callbackUser){
             let temp = {
                 displayName: doc.data().displayName,
                 uid: doc.data().uid,
-                votedItems: doc.data().votedItems
+                votedItems: doc.data().votedItems,
+                dyesSubmitted: doc.data().dyesSubmitted
             }
             callbackUser(temp)
         } else {

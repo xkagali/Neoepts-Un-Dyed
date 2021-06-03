@@ -1,42 +1,29 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Col, Image} from "react-bootstrap";
-import {faHeart} from "@fortawesome/free-solid-svg-icons";
 
-function DyeItem({item, allDyes, itemDetail, home}) {
+function DyeItem({item, allDyes, itemDetail, home, userProfile}) {
+    console.log(item)
     return (
         <Col className={allDyes || itemDetail ? "col-3 my-4" : "my-4"} key={item.id}>
-            {(home || allDyes) && <NavLink to={`/items/${item.id}`}>
+            {(home || allDyes || userProfile) && <NavLink to={`/items/${item.id}`}>
                 <Image src={item.imageUrl} fluid className="border"/>
-                <div className={"overlayCtn"}>
+                {!userProfile && <div className={"overlayCtn"}>
                     <div className="overlayText">
                         {!itemDetail && <span className="title">{item.name}</span>}
                         <span className="creator">Submitted by {item.creator}</span>
-                        {/*<div className="iconsCtn mt-4">*/}
-                        {/*    <input id="toggleLikes" type="checkbox"/>*/}
-                        {/*    <label htmlFor="toggleLikes">*/}
-                        {/*        <FontAwesomeIcon icon={faHeart} />*/}
-                        {/*    </label>*/}
-                        {/*</div>*/}
                     </div>
-                </div>
+                </div>}
             </NavLink>
             }
-            {(!home && !allDyes) && <>
+            {(!home && !allDyes && !userProfile) && <>
                 <Image src={item.imageUrl} fluid className="border"/>
-                <div className={"overlayCtn"}>
+                {!userProfile && <div className={"overlayCtn"}>
                     <div className="overlayText">
                         {!itemDetail && <span className="title">{item.name}</span>}
                         <span className="creator">Submitted by {item.creator}</span>
-                        {/*<div className="iconsCtn mt-4">*/}
-                        {/*    <input id="toggleLikes" type="checkbox"/>*/}
-                        {/*    <label htmlFor="toggleLikes">*/}
-                        {/*        <FontAwesomeIcon icon={faHeart} />*/}
-                        {/*    </label>*/}
-                        {/*</div>*/}
                     </div>
-                </div>
+                </div>}
             </>
             }
         </Col>

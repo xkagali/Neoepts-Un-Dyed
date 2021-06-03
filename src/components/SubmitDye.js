@@ -21,7 +21,14 @@ function SubmitDye({itemList, logIn, user}) {
             imageUrl: newDye.imageUrl,
             dateSubmitted: new Date()
         }
-        addDyeToFireBase(temp, newDye.id)
+
+        let userTemp = {
+            itemID: newDye.id,
+            imageUrl: newDye.imageUrl,
+            dateSubmitted: new Date()
+        }
+
+        addDyeToFireBase(temp, userTemp, newDye.id, user.uid)
     }
 
     console.log(newDye)

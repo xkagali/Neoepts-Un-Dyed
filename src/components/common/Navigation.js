@@ -44,7 +44,7 @@ function Navigation({logIn, resetLogIn, user, resetUser}) {
                     <input type="text" onKeyPress={(e) => searchCheck(e)} className="searchbar rounded mr-2"  placeholder="Search"/>
                     {(logIn === true) &&
                         <>
-                            <NavLink to="/user/:userID"><span className={"mx-2"}>{user.displayName}</span></NavLink> |
+                            <NavLink to={`/user/${user.uid}`}><span className={"mx-2"}>{user.displayName}</span></NavLink> |
                             <NavLink to="/submit"><Button className={"mx-2"}>Submit <FontAwesomeIcon icon={faPlus}/></Button></NavLink> |
                             <Button onClick={logout} className={"btnLink ml-2"}>Logout</Button>
                         </>

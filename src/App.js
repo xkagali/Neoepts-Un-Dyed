@@ -31,8 +31,6 @@ function App() {
         });
     }, [])
 
-    console.log(user)
-
     return (
         <BrowserRouter>
             {allItems && <>
@@ -52,8 +50,8 @@ function App() {
                             <AllDyesView itemList={allItems}/>
                         </Container>
                     </Route>
-                    <Route path="/user/:userID">
-                        <UserDetails logIn={loggedIn}/>
+                    <Route path="/user/:userID" exact>
+                        <UserDetails user={user} logIn={loggedIn} itemList={allItems} />
                     </Route>
                     <Route path="/portal" exact>
                         <UserRegistration/>
