@@ -7,7 +7,7 @@ function Footer() {
             <Row>
                 <Col>Disclaimer: This app was developed for a school project. It is not for public use.<br/><br/>
                     © 1999-2021 Neopets, Inc. All rights reserved. Used With Permission.<br />
-                    Special thanks to Matchu (DTI).
+                    Special thanks to Matchu (developer of DTI) for all the item information used in this app.
                 </Col>
             </Row>
         </Container>
