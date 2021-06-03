@@ -77,6 +77,7 @@ function AllDyesView({itemDetail, itemList}) {
                     )) : ""
                 }
             </Row>
+            {dyesAll.length === 0 && <Col className={"col-12 text-center"}>No unofficial dyeworks submissions</Col> }
             <Col className="col-6 my-2"><Button onClick={getPrev30}><FontAwesomeIcon icon={faCaretLeft} /> Prev</Button></Col>
             <Col className="col-6 text-right my-2"><Button onClick={getNext30}>Next <FontAwesomeIcon icon={faCaretRight} /></Button></Col>
         </Row>
