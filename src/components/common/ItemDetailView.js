@@ -15,7 +15,7 @@ function ItemDetailView({itemList, logIn, user, setUser}) {
 
     function findVote() {
         let foundVote = user.votedItems?.find(element => element === itemID);
-        console.log(foundVote)
+
         if (foundVote) {
             setVotedBefore(true)
         }
@@ -70,7 +70,7 @@ function ItemDetailView({itemList, logIn, user, setUser}) {
                 </Col>
             </Row>
             <Row>
-                <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Last voted: {vote}</h6></Col>
+                <Col className="col-6 my-2 align-self-center"><h6 className={"mb-0"}>Total votes: {vote}</h6></Col>
                 {(logIn === true && votedBefore === false) && <Col className="col-6 text-right my-2"><Button onClick={addVoteToItem}><FontAwesomeIcon
                     icon={faPlusSquare}/> Vote</Button></Col>}
                 {(logIn === true && votedBefore === true) && <Col className="col-6 text-right my-2"><Button disabled>Voted</Button></Col>}

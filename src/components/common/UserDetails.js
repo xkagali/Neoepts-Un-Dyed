@@ -6,10 +6,6 @@ import AllItems from "./AllItems";
 
 function UserDetails({user, logIn, itemList}) {
 
-    if(logIn === false){
-        return <Redirect to={"/portal"} />
-    }
-
     let userDyes = []
     itemList.forEach(item=>{
         if(item.dyesList){ //if dyelist exists
@@ -34,10 +30,15 @@ function UserDetails({user, logIn, itemList}) {
         return b.dateSubmitted - a.dateSubmitted
     })
     let userVotes = []
-    for (let i = 0; i < user.votedItems.length; i++){
-        // console.log(user.votedItems[i])
-        let findVotes = itemList.find(element => element.id === user.votedItems[i])
-        userVotes.push(findVotes)
+    if(user.votedItems){
+        for (let i = 0; i < user.votedItems.length; i++){
+            let findVotes = itemList.find(element => element.id === user.votedItems[i])
+            userVotes.push(findVotes)
+        }
+    }
+
+    if(logIn === false){
+        return <Redirect to={"/portal"} />
     }
 
     return (

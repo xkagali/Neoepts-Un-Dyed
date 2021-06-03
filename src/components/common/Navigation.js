@@ -11,10 +11,7 @@ function Navigation({logIn, resetLogIn, user, resetUser}) {
 
     function logout(e){
         firebase.auth().signOut().then(() => {
-            let temp = {
-                displayName: "",
-                uid: ""
-            }
+            let temp = {}
             resetUser(temp)
             resetLogIn(false)
             history.push('/portal')
