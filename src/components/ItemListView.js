@@ -10,7 +10,6 @@ function ItemListView({itemList}) {
         return b.name - a.name
     })
     let foundItems;
-    let filtered;
     const [itemsAll, setAllItems] = useState([])
     const [counter, setCounter] = useState(30)
     const [offset, setOffset] = useState(0)
@@ -23,6 +22,7 @@ function ItemListView({itemList}) {
     }
 
     useEffect(()=>{
+        let filtered;
         if (foundItems){ //if there's a search query
             filtered = foundItems.filter((items,index)=>{
                 // return index < counter //find first 30 items

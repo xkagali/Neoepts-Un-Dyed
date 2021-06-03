@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Col, Container, Row, Tab, Tabs} from "react-bootstrap";
-import AllItems from "./AllItems";
-import {useParams} from "react-router-dom";
 import DyeItem from "./DyeItem";
+import {Redirect} from "react-router-dom";
+import AllItems from "./AllItems";
 
 function UserDetails({user, logIn, itemList}) {
-    let {userID} = useParams()
+
+    if(logIn === false){
+        return <Redirect to={"/portal"} />
+    }
 
     let userDyes = []
     itemList.forEach(item=>{
@@ -25,6 +28,12 @@ function UserDetails({user, logIn, itemList}) {
             }
         }
     })
+    let userVotes = []
+    for (let i = 0; i < user.votedItems.length; i++){
+        // console.log(user.votedItems[i])
+        let findVotes = itemList.find(element => element.id === user.votedItems[i])
+        userVotes.push(findVotes)
+    }
 
     return (
         <Container>
@@ -42,6 +51,11 @@ function UserDetails({user, logIn, itemList}) {
                     </Row>
                 </Tab>
                 <Tab eventKey="voted" title="Voted">
+                    <Row className={"my-2 align-items-stretch"}>
+                        {userVotes.map(items=>(
+                            <AllItems key={items.id} item={items}/>
+                        ))}
+                    </Row>
                 </Tab>
             </Tabs>
         </Container>

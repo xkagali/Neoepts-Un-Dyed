@@ -11,8 +11,16 @@ function ItemDetailView({itemList, logIn, user, setUser}) {
     const [item, setItem] = useState([])
     const [vote, setVote] = useState()
     const [votedBefore, setVotedBefore] = useState(false)
-
     let findDyes;
+
+    function findVote() {
+        let foundVote = user.votedItems?.find(element => element === itemID);
+        console.log(foundVote)
+        if (foundVote) {
+            setVotedBefore(true)
+        }
+    }
+
     useEffect(() => {
         let foundItem = itemList.find(element => element.id === itemID)
         setVote(parseInt(foundItem.totalVotes))
@@ -28,14 +36,6 @@ function ItemDetailView({itemList, logIn, user, setUser}) {
         setVote(prevState => prevState + 1)
         getUser(setUser)
         setVotedBefore(true)
-    }
-
-    function findVote() {
-        let foundVote = user.votedItems?.find(element => element === itemID);
-        console.log(foundVote)
-        if (foundVote) {
-            setVotedBefore(true)
-        }
     }
 
     useEffect(()=>{
