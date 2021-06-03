@@ -5,7 +5,7 @@ import {deleteDyeFromFirebase} from "../../lib/js/functions";
 
 function DyeItem({item, allDyes, itemDetail, home, userProfile, user}) {
     const [deleteItem, setDeleteItem] = useState([])
-
+    console.log(user)
     function checkDelete(e){
         if(user.uid === item.uid){
             setDeleteItem(item)
@@ -14,7 +14,14 @@ function DyeItem({item, allDyes, itemDetail, home, userProfile, user}) {
     }
 
     useEffect(()=>{
-        deleteDyeFromFirebase(item.id, item.dateSubmitted)
+        // let temp = {
+        //     uid: user.uid,
+        //     creator: user.displayName,
+        //     imageUrl: item.imageUrl,
+        //     dateSubmitted: item.dateSubmitted
+        // }
+
+        // deleteDyeFromFirebase(item.id, temp)
     },[deleteItem])
 
     return (
