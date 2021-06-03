@@ -17,6 +17,7 @@ function UserDetails({user, logIn, itemList}) {
                     //if same, push into array
                     let newObj = {
                         "id": item.id,
+                        "name": item.name,
                         "imageUrl": item.dyesList[i].imageUrl
                     }
                     userDyes.push(newObj);
@@ -24,7 +25,6 @@ function UserDetails({user, logIn, itemList}) {
             }
         }
     })
-    console.log(userDyes)
 
     return (
         <Container>
