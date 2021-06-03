@@ -54,7 +54,7 @@ function App() {
                         <UserDetails user={user} logIn={loggedIn} itemList={allItems} />
                     </Route>
                     <Route path="/portal" exact>
-                        <UserRegistration/>
+                        <UserRegistration logIn={loggedIn}/>
                     </Route>
                     <Route path="/success" exact>
                         <Success/>

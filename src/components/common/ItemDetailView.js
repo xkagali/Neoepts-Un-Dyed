@@ -76,8 +76,8 @@ function ItemDetailView({itemList, logIn, user, setUser}) {
                 {(logIn === true && votedBefore === true) && <Col className="col-6 text-right my-2"><Button disabled>Voted</Button></Col>}
             </Row>
             <Row className="recentCtn">
-                {findDyes ? findDyes.map(item => (
-                    <DyeItem itemDetail={true} item={item}/>
+                {findDyes ? findDyes.map((item, index) => (
+                    <DyeItem key={index} itemDetail={true} item={item}/>
                 )) : <Col className="my-4 col-12">No unoffical dyes submitted</Col>}
             </Row>
         </Container>

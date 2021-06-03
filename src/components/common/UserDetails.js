@@ -30,6 +30,9 @@ function UserDetails({user, logIn, itemList}) {
             }
         }
     })
+    userDyes.sort((a,b)=>{
+        return b.dateSubmitted - a.dateSubmitted
+    })
     let userVotes = []
     for (let i = 0; i < user.votedItems.length; i++){
         // console.log(user.votedItems[i])

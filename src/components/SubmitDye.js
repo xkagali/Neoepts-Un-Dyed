@@ -27,14 +27,8 @@ function SubmitDye({itemList, logIn, user}) {
             dateSubmitted: new Date()
         }
 
-        let userTemp = {
-            itemID: newDye.id,
-            imageUrl: newDye.imageUrl,
-            dateSubmitted: new Date()
-        }
-
-        addDyeToFireBase(temp, userTemp, newDye.id, user.uid)
-        history.push('/portal')
+        addDyeToFireBase(temp, newDye.id)
+        history.push(`/user/${user.id}`)
     }
 
     if(logIn === false){

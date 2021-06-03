@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {Col, Container, Row, Form, Button} from "react-bootstrap";
-import {useHistory} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 import firebase from "../lib/js/firebase";
 import "firebase/auth";
 const db = firebase.firestore();
 
-function UserRegistration() {
+function UserRegistration({logIn}) {
 
     const history = useHistory()
     const [tempAcc, setTempAcc] = useState({
@@ -54,6 +54,10 @@ function UserRegistration() {
                 console.log(error);
             });
         e.preventDefault();
+    }
+
+    if(logIn === true){
+        return <Redirect to={"/"} />
     }
 
     return (

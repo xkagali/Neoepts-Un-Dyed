@@ -33,9 +33,7 @@ export function addDyeToFireBase(dyeSub, itemID){
         dyesList: firebase.firestore.FieldValue.arrayUnion(dyeSub)
     })
         .then(()=>{
-            console.log("success")
         }).catch(()=>{
-        console.log("error")
     })
 }
 
