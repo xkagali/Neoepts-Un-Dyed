@@ -33,7 +33,7 @@ function AllDyesView({itemDetail, itemList}) {
                 return index >= offset && index < counter // index more than or = to 0, index less than 30
             })
         setAllDyes(filtered)
-    },[counter])
+    },[counter, offset, recentDyes])
 
     function getNext30(){
         //counter cannot go above itemList.length

@@ -37,15 +37,12 @@ export function addDyeToFireBase(dyeSub, itemID){
     })
 }
 
-export function deleteDyeFromFirebase(itemID, dateSubmitted){
-    //if dye UID is the same as current user ID
-    //delete the one with the same date submitted
-    db.collection('itemsList').doc(itemID).update({
-        dyesList: firebase.firestore.FieldValue.arrayRemove(dateSubmitted)
+export function deleteDyeFromFirebase(item, temp){
+    db.collection('itemsList').doc(item.id).update({
+        dyesList: firebase.firestore.FieldValue.arrayRemove(temp)
     }).then(()=>{
-
-    }).catch(()=>{
-        console.log("failed")
+    }).catch((error)=>{
+        console.log(error)
     })
 }
 
@@ -56,8 +53,7 @@ export function getUser(callbackUser){
             let temp = {
                 displayName: doc.data().displayName,
                 uid: doc.data().uid,
-                votedItems: doc.data().votedItems,
-                dyesSubmitted: doc.data().dyesSubmitted
+                votedItems: doc.data().votedItems
             }
             callbackUser(temp)
         } else {

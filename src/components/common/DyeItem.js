@@ -1,28 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {NavLink} from "react-router-dom";
 import {Col, Image, Button} from "react-bootstrap";
 import {deleteDyeFromFirebase} from "../../lib/js/functions";
 
 function DyeItem({item, allDyes, itemDetail, home, userProfile, user}) {
-    const [deleteItem, setDeleteItem] = useState([])
-    console.log(user)
     function checkDelete(e){
         if(user.uid === item.uid){
-            setDeleteItem(item)
+            let temp = {
+                creator: user.displayName,
+                dateSubmitted: item.dateSubmitted,
+                imageUrl: item.imageUrl,
+                uid: user.uid
+            }
+            deleteDyeFromFirebase(item, temp)
         }
         e.preventDefault()
     }
-
-    useEffect(()=>{
-        // let temp = {
-        //     uid: user.uid,
-        //     creator: user.displayName,
-        //     imageUrl: item.imageUrl,
-        //     dateSubmitted: item.dateSubmitted
-        // }
-
-        // deleteDyeFromFirebase(item.id, temp)
-    },[deleteItem])
 
     return (
         <>
