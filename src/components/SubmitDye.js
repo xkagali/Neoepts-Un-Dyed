@@ -1,18 +1,23 @@
-import React, {useState} from 'react';
-import {Col, Container, Row, Form, Button} from "react-bootstrap";
+import React, {useEffect, useState} from 'react';
+import {Col, Container, Row, Form, Button, Image} from "react-bootstrap";
 import {addDyeToFireBase} from "../lib/js/functions";
-import {Redirect} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 
 function SubmitDye({itemList, logIn, user}) {
     const [newDye, setNewDye] = useState([])
+    const [previewUrl, setThumbnail] = useState("")
+    const history = useHistory()
 
-    if(logIn === false){
-        return <Redirect to={"/portal"} />
+    function change(e) {
+        setNewDye(currState => ({...currState, ...{[e.target.name]: e.target.value}}))
     }
 
-    function change(e){
-        setNewDye(currState => ({...currState, ...{[e.target.name] : e.target.value}}))
-    }
+    useEffect(()=>{
+        let foundItem = itemList.find(element => element.id === newDye.id)
+        if (foundItem){
+            setThumbnail(foundItem.thumbnailUrl)
+        }
+    },[newDye])
 
     function addDyesToItem(){
         let temp = {
@@ -29,13 +34,19 @@ function SubmitDye({itemList, logIn, user}) {
         }
 
         addDyeToFireBase(temp, userTemp, newDye.id, user.uid)
+        history.push('/portal')
     }
 
-    console.log(newDye)
+    if(logIn === false){
+        return <Redirect to={"/portal"} />
+    }
 
     return (
         <Container className="my-4">
             <Row className="justify-content-center">
+                <Col className="col-2 mb-4">
+                    {previewUrl && <Image src={previewUrl} fluid />}
+                </Col>
                 <Col className="col-6 mb-4">
                     Choose Item
                     <Form.Control as="select" onChange={change} name={"id"}>
@@ -47,6 +58,8 @@ function SubmitDye({itemList, logIn, user}) {
                 </Col>
             </Row>
             <Row className="justify-content-center">
+                <Col className="col-2 mb-4">
+                </Col>
                 <Col className="col-6 mb-4">
                     Dye image url (direct link from imgur.com)
                     <Form.Control name={"imageUrl"} onChange={change} />

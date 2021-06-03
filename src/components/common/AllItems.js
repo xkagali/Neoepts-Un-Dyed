@@ -2,7 +2,7 @@ import React from 'react';
 import {Col, Image, Card} from "react-bootstrap"
 import {NavLink} from "react-router-dom";
 
-function AllItems({item, itemListView, itemListViewLess}) {
+function AllItems({item, itemListView, itemListViewLess, userProfile}) {
     return (
         <>
             <Col key={item.id} className={(itemListView && "col-2 my-3") || (itemListViewLess && "col-3 my-3")}>
@@ -10,7 +10,7 @@ function AllItems({item, itemListView, itemListViewLess}) {
                     <Card>
                         <div className="votedCtn">
                             <Image src={item.thumbnailUrl} fluid/>
-                            {(!itemListView && !itemListViewLess) && <>
+                            {(!itemListView && !itemListViewLess && !userProfile) && <>
                                 <div className={"overlayCtn"}>
                                     <div className="overlayText">
                                         votes<br/>{item.totalVotes}

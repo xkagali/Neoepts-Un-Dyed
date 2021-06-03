@@ -28,7 +28,7 @@ export function addVoteToFirebase(itemID, vote, userID){
         })
     }
 }
-export function addDyeToFireBase(dyeSub, dyeUser, itemID, userID){
+export function addDyeToFireBase(dyeSub, itemID){
     db.collection("itemsList").doc(itemID).update({
         dyesList: firebase.firestore.FieldValue.arrayUnion(dyeSub)
     })
@@ -39,8 +39,20 @@ export function addDyeToFireBase(dyeSub, dyeUser, itemID, userID){
     })
 }
 
+export function deleteDyeFromFirebase(itemID, dateSubmitted){
+    //if dye UID is the same as current user ID
+    //delete the one with the same date submitted
+    db.collection('itemsList').doc(itemID).update({
+        dyesList: firebase.firestore.FieldValue.arrayRemove(dateSubmitted)
+    }).then(()=>{
+
+    }).catch(()=>{
+        console.log("failed")
+    })
+}
+
 export function getUser(callbackUser){
-    firebase.firestore().collection('userList').doc(firebase.auth().currentUser.uid)
+    db.collection('userList').doc(firebase.auth().currentUser.uid)
         .get().then((doc) => {
         if (doc.exists) {
             let temp = {

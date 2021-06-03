@@ -159,7 +159,7 @@ h6{
   width: 100%;
 }
 
-.recentCtn .col:hover .overlayCtn, .votedCtn:hover .overlayCtn{
+.recentCtn .dyeOverlay:hover .overlayCtn, .votedCtn:hover .overlayCtn{
   opacity: 1;
   transform: translate(0px, 0px);
 }

@@ -21,7 +21,9 @@ function UserDetails({user, logIn, itemList}) {
                     let newObj = {
                         "id": item.id,
                         "name": item.name,
-                        "imageUrl": item.dyesList[i].imageUrl
+                        "imageUrl": item.dyesList[i].imageUrl,
+                        "dateSubmitted": item.dyesList[i].dateSubmitted,
+                        "uid": item.dyesList[i].uid
                     }
                     userDyes.push(newObj);
                 }
@@ -46,14 +48,14 @@ function UserDetails({user, logIn, itemList}) {
                 <Tab eventKey="dyes" title="Unofficial Dyes">
                     <Row className="recentCtn">
                         {userDyes.map((dyes,index)=>(
-                            <DyeItem key={index} item={dyes} userProfile={true} />
+                            <DyeItem key={index} item={dyes} userProfile={true} user={user} />
                         ))}
                     </Row>
                 </Tab>
                 <Tab eventKey="voted" title="Voted">
                     <Row className={"my-2 align-items-stretch"}>
                         {userVotes.map(items=>(
-                            <AllItems key={items.id} item={items}/>
+                            <AllItems key={items.id} item={items} userProfile={true}/>
                         ))}
                     </Row>
                 </Tab>
