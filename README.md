@@ -1,6 +1,6 @@
 # Neopets Un-dyed
 
-This project is still in development and is not ready for public use.
+This project was created for a school project. It is not for public use.
 
 ### About App
 Neopets Un-dyed is created for the users of the neocash community on Neopets to submit their unofficial dyeworks they have made instead of having them posted on individual pet pages.
