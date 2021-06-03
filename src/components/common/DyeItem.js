@@ -19,7 +19,7 @@ function DyeItem({item, allDyes, itemDetail, home, userProfile, user}) {
 
     return (
         <>
-            <Col className="px-0">
+            <Col className="px-0 col-3">
                 <Col className={`dyeOverlay ${allDyes} || ${itemDetail} ? "col-3 my-4" : "my-4"`} key={item.id}>
                     {(home || allDyes || userProfile) && <NavLink to={`/items/${item.id}`}>
                         <Image src={item.imageUrl} fluid className="border"/>
