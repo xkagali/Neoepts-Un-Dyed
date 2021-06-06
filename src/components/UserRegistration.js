@@ -28,31 +28,31 @@ function UserRegistration({logIn}) {
         setLogin({...login, [e.target.name]:e.target.value})
     }
 
-    function checkPassword(e){
-        if(tempAcc.password === tempAcc.confirmPassword){
-            setUpAccount()
-        }else{
-            alert("password does not match");
-        }
-        e.preventDefault();
-    }
+    // function checkPassword(e){
+    //     if(tempAcc.password === tempAcc.confirmPassword){
+    //         setUpAccount()
+    //     }else{
+    //         alert("password does not match");
+    //     }
+    //     e.preventDefault();
+    // }
 
-    function setUpAccount(){
-        firebase.auth().createUserWithEmailAndPassword(tempAcc.email, tempAcc.password)
-            .then((userCredential) => {
-                history.push('/success')
-                db.collection("userList")
-                    .doc(`${userCredential.user.uid}`)
-                    .set({
-                        displayName: tempAcc.displayName,
-                        uid: userCredential.user.uid
-                    })
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        firebase.auth().signOut();
-    }
+    // function setUpAccount(){
+    //     firebase.auth().createUserWithEmailAndPassword(tempAcc.email, tempAcc.password)
+    //         .then((userCredential) => {
+    //             history.push('/success')
+    //             db.collection("userList")
+    //                 .doc(`${userCredential.user.uid}`)
+    //                 .set({
+    //                     displayName: tempAcc.displayName,
+    //                     uid: userCredential.user.uid
+    //                 })
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    //     firebase.auth().signOut();
+    // }
 
     function checkLogin(e){
         firebase.auth().signInWithEmailAndPassword(login.email, login.password)
@@ -74,34 +74,35 @@ function UserRegistration({logIn}) {
             <Row className="my-4 justify-content-around">
                 <Col className={"col-4"}>
                     <h2>Register</h2>
-                    Please do not use the same details as your neopets account!<br /><br />
-                    {tempAcc.error && <h4>{tempAcc.error}</h4>}
-                    <Form>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Display Name</Form.Label>
-                            <Form.Control type="text" name={"displayName"} onChange={change} placeholder="Enter your display name" />
-                        </Form.Group>
+                    Registration is closed as site is not meant for public use.<br /><br />
+                    {/*{tempAcc.error && <h4>{tempAcc.error}</h4>}*/}
+                    {/*<Form>*/}
+                    {/*    <Form.Group className="mb-3">*/}
+                    {/*        <Form.Label>Display Name</Form.Label>*/}
+                    {/*        <Form.Control type="text" name={"displayName"} onChange={change} placeholder="Enter your display name" />*/}
+                    {/*    </Form.Group>*/}
 
-                        <Form.Group className="mb-3">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" name={"email"} onChange={change} placeholder="Enter email" />
-                        </Form.Group>
+                    {/*    <Form.Group className="mb-3">*/}
+                    {/*        <Form.Label>Email</Form.Label>*/}
+                    {/*        <Form.Control type="email" name={"email"} onChange={change} placeholder="Enter email" />*/}
+                    {/*    </Form.Group>*/}
 
-                        <Form.Group className="mb-3">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" name={"password"} onChange={change} placeholder="Password" />
-                        </Form.Group>
+                    {/*    <Form.Group className="mb-3">*/}
+                    {/*        <Form.Label>Password</Form.Label>*/}
+                    {/*        <Form.Control type="password" name={"password"} onChange={change} placeholder="Password" />*/}
+                    {/*    </Form.Group>*/}
 
-                        <Form.Group className="mb-3">
-                            <Form.Control type="password" name={"confirmPassword"} onChange={change} placeholder="Confirm Password" />
-                        </Form.Group>
-                        <Button onClick={checkPassword} variant="primary" type="submit">
-                            Submit
-                        </Button>
-                    </Form>
+                    {/*    <Form.Group className="mb-3">*/}
+                    {/*        <Form.Control type="password" name={"confirmPassword"} onChange={change} placeholder="Confirm Password" />*/}
+                    {/*    </Form.Group>*/}
+                    {/*    <Button onClick={checkPassword} variant="primary" type="submit">*/}
+                    {/*        Submit*/}
+                    {/*    </Button>*/}
+                    {/*</Form>*/}
                 </Col>
                 <Col className={"col-4"}>
                     <h2>Login</h2>
+                    If you'd like a test login account, please contact me.
                     <Form>
                         <Form.Group className="mb-3">
                             <Form.Label>Username</Form.Label>
